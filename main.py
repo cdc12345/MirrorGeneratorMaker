@@ -14,7 +14,8 @@ def getDictionary():
 def findAndReplace(generator_zip_file:zipfile.ZipFile):
     dictionary = getDictionary()
     print("dictionary: ", dictionary)
-    out = generator_zip_file.filename + ".zip"
+    # 重新加个名字
+    out = generator_zip_file.filename.replace("generator", "mirror-generator")
     with zipfile.ZipFile(out, mode='w') as output:
         for entry in generator_zip_file.infolist():
             # 获得文件名
